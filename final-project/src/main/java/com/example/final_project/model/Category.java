@@ -12,18 +12,14 @@ public class Category {
     @Column(name = "categoryID")
     private Integer categoryID;
 
-    @Column(name = "productID", nullable = false)
-    private Integer productID;
-
     @Column(name = "categoryName", nullable = false)
     private String categoryName;
 
 
     public Category(){}
 
-    public Category(Integer categoryID, Integer productID, String categoryName) {
+    public Category(Integer categoryID, String categoryName) {
         this.categoryID = categoryID;
-        this.productID = productID;
         this.categoryName = categoryName;
     }
 
@@ -43,11 +39,4 @@ public class Category {
         this.categoryName = categoryName;
     }
 
-    public Integer getProductID() {
-        return productID;
-    }
-
-    public void setProductID(Integer productID) {
-        this.productID = productID;
-    }
 }

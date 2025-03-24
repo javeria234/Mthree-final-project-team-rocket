@@ -8,7 +8,7 @@ import jakarta.persistence.Table;
 import java.math.BigDecimal;
 
 @Entity
-@Table(name = "cart")
+@Table(name = "shoppingcart")
 
 public class Cart {
 
@@ -16,12 +16,11 @@ public class Cart {
     @Column(name = "userID")
     private Integer userID;
 
-    @Id
     @Column(name = "productID")
     private Integer productID;
 
-    @Column(name = "numOfProducts", nullable = false)
-    private Integer numOfProducts;
+    @Column(name = "numOfProduct", nullable = false)
+    private Integer numOfProduct;
 
     @Column(name = "totalPrice", nullable = false)
     private BigDecimal totalPrice;
@@ -31,9 +30,9 @@ public class Cart {
 
     }
 
-    public Cart(Integer userID, Integer numOfProducts, Integer productID, BigDecimal totalPrice) {
+    public Cart(Integer userID, Integer numOfProduct, Integer productID, BigDecimal totalPrice) {
         this.userID = userID;
-        this.numOfProducts = numOfProducts;
+        this.numOfProduct = numOfProduct;
         this.productID = productID;
         this.totalPrice = totalPrice;
     }
@@ -55,11 +54,11 @@ public class Cart {
     }
 
     public Integer getNumOfProducts() {
-        return numOfProducts;
+        return numOfProduct;
     }
 
     public void setNumOfProducts(Integer numOfProducts) {
-        this.numOfProducts = numOfProducts;
+        this.numOfProduct = numOfProducts;
     }
 
     public BigDecimal getTotalPrice() {

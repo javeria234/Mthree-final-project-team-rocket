@@ -1,6 +1,7 @@
 package com.example.final_project.dao;
 
+import com.example.final_project.model.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface ProductDao extends JpaRepository <ProductDao, Integer>{
+public interface ProductDao extends JpaRepository <Product, Integer>{
 }
