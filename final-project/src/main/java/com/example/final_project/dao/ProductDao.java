@@ -8,6 +8,8 @@ import java.util.List;
 public interface ProductDao extends JpaRepository <Product, Integer>{
     Product findByProductName(String productName);
 
+    List<Product> findByCategoryID(Integer categoryId);
+
     //void deleteByProductName(String productName);
 
 
