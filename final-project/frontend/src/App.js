@@ -1,38 +1,64 @@
-import { useState } from "react";
-import LoginPage from "./components/LoginPage";
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
+import './App.css';
+import pokeballLogo from '../Images/Pokeball.png';
+import figurinesImage from '../Images/figurines_mainpage.png';
+import LoginPage from './LoginPage';
+import HomePage from './HomePage';
+import FirePage from './FirePage';
+import CharmanderProduct from "./CharmanderProduct";
+import CharmeleonProduct from "./CharmeleonProduct"; // Import CharmeleonProduct
+import CharizardProduct from "./CharizardProduct"; // Import CharizardProduct
 
 function App() {
-  const [token, setToken] = useState("");
+    const [showFigurines, setShowFigurines] = useState(false);
+    const navigate = useNavigate();
 
-  const handleLogin = async (username, password) => {
-    // Simulating a backend call (you can replace this with actual login logic)
-    const response = await fetch("http://localhost:8080/auth/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ username, password }),
-    });
+    const handleLoginClick = () => {
+        navigate('/login');
+    };
 
+    const handleShopNowClick = () => {
+        setShowFigurines(true);
+    };
 
-  };
-
-  return (
-    <div className="container d-flex justify-content-center align-items-center" style={{ height: "100vh" }}>
-      <div className="card shadow-lg" style={{ width: "25rem" }}>
-        <div className="card-body">
-          <h3 className="card-title text-center mb-4">Login</h3>
-
-          {/* Login Form */}
-          <LoginPage onLogin={handleLogin} />
-
-          <div className="text-center mt-3">
-            <a href="#" className="text-muted">Forgot password?</a>
-          </div>
+    return (
+        <div className="main">
+            <Routes>
+                <Route path="/" element={
+                    <div className="content">
+                        <div className="logo-container">
+                            <img src={pokeballLogo} alt="Pokemon Logo" className="logo" />
+                            <button className="login" onClick={handleLoginClick}>LOG IN</button>
+                        </div>
+                        <h1 className="title">POKEMART</h1>
+                        <div className="subBox">
+                            <p className="sub">Get our figurines today</p>
+                        </div>
+                        <h2 className="catch">Gotta buy them all!</h2>
+                        <div className="preview">
+                            <img src={figurinesImage} alt="Pokemon Figurines Preview" />
+                            <button className="shopButton" onClick={handleShopNowClick}>SHOP NOW</button>
+                        </div>
+                    </div>
+                } />
+                <Route path="/login" element={<LoginPage />} />
+                <Route path="/home" element={<HomePage />} />
+                <Route path="/fire" element={<FirePage />} />
+                <Route path="/product/charmander" element={<CharmanderProduct />} />
+                <Route path="/product/charmeleon" element={<CharmeleonProduct />} />
+                <Route path="/product/charizard" element={<CharizardProduct />} />
+            </Routes>
         </div>
-      </div>
-    </div>
-  );
+    );
 }
 
-export default App;
+function AppWithRouter() {
+    return (
+        <Router>
+            <App />
+        </Router>
+    );
+}
+
+export default AppWithRouter;
