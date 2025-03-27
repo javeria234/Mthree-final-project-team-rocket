@@ -1,29 +1,21 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import './FirePage.css';
+import './CartPage.css';
 import pokeballLogo from "../Images/Pokeball.png";
 import cartLogo from "../Images/cart.png";
 import logoutLogo from "../Images/logout.png";
 import charmander from "../Images/charmander.png";
 
-function ProductPage() {
-    const navigate = useNavigate();
-    const [quantity, setQuantity] = useState(0);
-
-    const handleAddToCartClick = () => {
-        if (quantity > 0) {
-            navigate('/charmander-cart'); // Navigate to CartPage
-        } else {
-            alert("Please select a quantity greater than 0.");
-        }
-    };
+function CartPage() {
+    const [quantity, setQuantity] = useState(1);
+    const price = 10.99;
+    const total = quantity * price;
 
     const handleIncrement = () => {
         setQuantity(quantity + 1);
     };
 
     const handleDecrement = () => {
-        if (quantity > 0) {
+        if (quantity > 1) {
             setQuantity(quantity - 1);
         }
     };
@@ -40,25 +32,28 @@ function ProductPage() {
                 <img src={cartLogo} alt="Cart Logo" className="productCart" />
             </div>
             <h1 className="productTitle">POKEMON-SHOP</h1>
+
             <div className="productCard">
-                <h3 className="productName">Charmander</h3>
                 <div className="productImageContainer">
                     <img src={charmander} alt="Charmander" className="productImage" />
                 </div>
                 <div className="productDescription">
-                    <p>This is a Charmander description</p>
-                </div>
-                <div className="addToCartSection">
+                    <p>Charmander</p>
                     <div className="quantityControls">
                         <button className="quantityButton" onClick={handleDecrement}>-</button>
                         <span className="quantity">{quantity}</span>
                         <button className="quantityButton" onClick={handleIncrement}>+</button>
                     </div>
-                    <button className="addToCartButton" onClick={handleAddToCartClick}>ADD TO CART</button>
+                    <span>£{price.toFixed(2)}</span>
                 </div>
+                <div className="addToCartSection">
+                    <span className="totalLabel">Total</span>
+                    <span className="totalPrice">£{total.toFixed(2)}</span>
+                </div>
+                <button className="checkOutButton">CHECKOUT</button>
             </div>
         </div>
     );
 }
 
-export default ProductPage;
+export default CartPage;

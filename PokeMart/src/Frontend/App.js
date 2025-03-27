@@ -7,8 +7,11 @@ import LoginPage from './LoginPage';
 import HomePage from './HomePage';
 import FirePage from './FirePage';
 import CharmanderProduct from "./CharmanderProduct";
-import CharmeleonProduct from "./CharmeleonProduct"; // Import CharmeleonProduct
-import CharizardProduct from "./CharizardProduct"; // Import CharizardProduct
+import CharmeleonProduct from "./CharmeleonProduct";
+import CharizardProduct from "./CharizardProduct";
+import CartPage from "./CartPage";
+import AdminPage from "./AdminPage";
+import EditProductPage from "./EditProductPage";
 
 function App() {
     const [showFigurines, setShowFigurines] = useState(false);
@@ -48,6 +51,9 @@ function App() {
                 <Route path="/product/charmander" element={<CharmanderProduct />} />
                 <Route path="/product/charmeleon" element={<CharmeleonProduct />} />
                 <Route path="/product/charizard" element={<CharizardProduct />} />
+                <Route path="/charmander-cart" element={<CartPage />} />
+                <Route path="/admin" element={<AdminPage />} />
+                <Route path="/edit-product" element={<EditProductPage />} />
             </Routes>
         </div>
     );

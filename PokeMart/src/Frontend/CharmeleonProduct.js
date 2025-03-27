@@ -1,16 +1,31 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './FirePage.css'; // Renamed CSS file to ProductPage.css
+import './FirePage.css';
 import pokeballLogo from "../Images/Pokeball.png";
 import cartLogo from "../Images/cart.png";
 import logoutLogo from "../Images/logout.png";
-import Charmeleon from "../Images/charmeleon.png";
+import charmeleon from "../Images/charmeleon.png"; // You need to have an image for Charmeleon
 
-function ProductPage() {
+function CharmeleonProduct() {
     const navigate = useNavigate();
+    const [quantity, setQuantity] = useState(0);
 
-    const handleCheckoutClick = () => {
-        navigate('/charmeleon-details');
+    const handleAddToCartClick = () => {
+        if (quantity > 0) {
+            navigate('/charmander-cart'); // Navigate to CartPage
+        } else {
+            alert("Please select a quantity greater than 0.");
+        }
+    };
+
+    const handleIncrement = () => {
+        setQuantity(quantity + 1);
+    };
+
+    const handleDecrement = () => {
+        if (quantity > 0) {
+            setQuantity(quantity - 1);
+        }
     };
 
     const handleLogoutClick = () => {
@@ -28,22 +43,22 @@ function ProductPage() {
             <div className="productCard">
                 <h3 className="productName">Charmeleon</h3>
                 <div className="productImageContainer">
-                    <img src={Charmeleon} alt="Charmeleon" className="productImage" />
+                    <img src={charmeleon} alt="Charmeleon" className="productImage" />
                 </div>
                 <div className="productDescription">
                     <p>This is a Charmeleon description</p>
                 </div>
                 <div className="addToCartSection">
                     <div className="quantityControls">
-                        <button className="quantityButton">-</button>
-                        <span className="quantity">0</span>
-                        <button className="quantityButton">+</button>
+                        <button className="quantityButton" onClick={handleDecrement}>-</button>
+                        <span className="quantity">{quantity}</span>
+                        <button className="quantityButton" onClick={handleIncrement}>+</button>
                     </div>
-                    <button className="addToCartButton">ADD TO CART</button>
+                    <button className="addToCartButton" onClick={handleAddToCartClick}>ADD TO CART</button>
                 </div>
             </div>
         </div>
     );
 }
 
-export default ProductPage;
+export default CharmeleonProduct;

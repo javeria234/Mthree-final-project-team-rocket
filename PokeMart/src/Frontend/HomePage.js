@@ -9,7 +9,15 @@ function HomePage() {
     const navigate = useNavigate();
 
     const handleFireClick = () => {
-        navigate('/fire'); // Navigate to FireTypePage
+        navigate('/fire');
+    };
+
+    const handleWaterClick = () => {
+        navigate('/fire');
+    };
+
+    const handleGrassClick = () => {
+        navigate('/fire'); // Navigate to FirePage
     };
 
     return (
@@ -26,9 +34,9 @@ function HomePage() {
             <h2 className="h2">POKEMON SHOP</h2>
             <p className="subtitle">Choose your type!</p>
             <div className="options">
-                <div className="option" onClick={handleFireClick}>Fire</div> {/* Add onClick */}
-                <div className="option">Water</div>
-                <div className="option">Grass</div>
+                <div className="option" onClick={handleFireClick}>Fire</div>
+                <div className="option" onClick={handleWaterClick}>Water</div>
+                <div className="option" onClick={handleGrassClick}>Grass</div>
             </div>
         </div>
     );

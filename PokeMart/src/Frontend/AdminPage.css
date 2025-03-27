@@ -1,0 +1,86 @@
+.adminContainer {
+  background-image: url('../Images/img_1.png');
+  background-size: cover;
+  background-position: center;
+  border-radius: 40px;
+  height: 500px;
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+  text-align: center;
+  color: white;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.topBar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.adminLogo {
+  width: 40px;
+}
+
+.adminLogout {
+  width: 40px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+}
+
+.adminTitle {
+  font-size: 2.5em;
+  margin: 0;
+  color: white;
+  font-weight: bold;
+}
+
+.adminSubtitle {
+  font-size: 1.5em;
+  margin-bottom: 20px;
+}
+
+.adminProducts {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.adminProduct {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  box-sizing: border-box;
+  width: 30%;
+}
+
+.productImage1{
+  max-width: 130%;
+  max-height: 62%;
+  object-fit: contain;
+}
+
+.editButton, .removeButton {
+  background-color: #070606;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  margin-top: 5px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.editButton:hover, .removeButton:hover {
+  background-color: midnightblue;
+}

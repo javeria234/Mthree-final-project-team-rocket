@@ -62,14 +62,14 @@
 }
 
 .passwordInput {
-width: calc(100% - 20px);
-padding: 10px;
-margin-bottom: 10px;
-border: none;
+  width: calc(100% - 20px);
+  padding: 10px;
+  margin-bottom: 10px;
+  border: none;
   margin-top: 5px;
-border-bottom: 2px solid #ccc;
-border-radius: 0;
-box-sizing: border-box;
+  border-bottom: 2px solid #ccc;
+  border-radius: 0;
+  box-sizing: border-box;
 }
 
 .loginForm input::placeholder {
@@ -89,3 +89,20 @@ box-sizing: border-box;
   transform: translateX(-50%);
 }
 
+.userTypeSelect {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 8px 12px;
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 40px;
+  box-sizing: border-box;
+  z-index: 2;
+}
+
+.userTypeSelect:focus {
+  outline: none;
+  border-color: #aaa;
+}
