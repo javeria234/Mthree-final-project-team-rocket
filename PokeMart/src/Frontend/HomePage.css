@@ -1,0 +1,93 @@
+.home-container {
+  background-image: url('../Images/img_1.png');
+  background-size: cover;
+  background-position: center;
+  border-radius: 40px;
+  height: 600px;
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+.logo-icons-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0 20px;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+}
+
+.icons-right {
+  display: flex;
+  align-items: center;
+}
+
+.pokeball-icon {
+  width: 40px;
+  border-radius: 50%;
+  margin-left: 10px;
+}
+
+.logo3 {
+  width: 50px;
+  margin-left: 160px;
+}
+
+.logoutLogo {
+  width: 50px;
+  margin-right: 10px;
+}
+
+.cartLogo {
+  width: 50px;
+}
+
+.h2 {
+  font-size: 4em;
+  margin: 0;
+  color: white;
+  font-weight: bold;
+}
+
+.subtitle {
+  font-size: 25px;
+  margin-bottom: 20px;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+}
+
+.option {
+  background-color: #070606;
+  padding: 20px;
+  text-align: center;
+  margin: 10px 0;
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 1.2em;
+  font-weight: bold;
+  color: white;
+}
+
+.option:hover {
+  background-color: midnightblue;
+}
+
+.arrow {
+  font-size: 1.5em;
+  color: #333;
+}
