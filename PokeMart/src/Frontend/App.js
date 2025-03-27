@@ -8,6 +8,8 @@ import HomePage from './HomePage';
 import ProductsByCategoryPage from './ProductsByCategoryPage';
 import AdminPage from "./AdminPage";
 import ProductPage from "./ProductPage";
+import AddProductForm from"./AddProductForm"
+import EditProductPage from"./EditProductPage"
 
 function App() {
     const [showFigurines, setShowFigurines] = useState(false);
@@ -46,6 +48,8 @@ function App() {
                 <Route path="/category/:categoryId" element={<ProductsByCategoryPage />} />
                 <Route path="/admin" element={<AdminPage />} />
                 <Route path="/product/:productName" element={<ProductPage />} />
+                <Route path="/edit-product/:productName" element={<EditProductPage/>} />
+                <Route path="/add-product" element={<AddProductForm />} />
             </Routes>
         </div>
     );

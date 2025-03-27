@@ -9,29 +9,44 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "shoppingcart")
-@IdClass(CartId.class)
 public class Cart {
 
     @Id
-    @Column(name = "userID")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "cartItemID")
+    private Integer cartItemID;
+
+    @Column (name = "userID", nullable = false)
     private Integer userID;
 
-    @Id
-    @ManyToOne
-    @JoinColumn(name = "productID", referencedColumnName = "productID")
-    private Product product;
+    @Column (name = "ProductID", nullable = false)
+    private Integer productID;
 
     @Column(name = "numOfProduct", nullable = false)
     private Integer numOfProduct;
+
+    @Column(name = "totalPrice", nullable = false)
+    private BigDecimal totalPrice;
 
     public Cart(){
 
     }
 
-    public Cart(Integer userID, Integer numOfProduct, Product product, BigDecimal totalPrice) {
+    public Cart(Integer cartItemID, Integer userID, Integer numOfProduct, Integer productID, BigDecimal totalPrice) {
+        this.cartItemID = cartItemID;
         this.userID = userID;
         this.numOfProduct = numOfProduct;
-        this.product = product;
+        this.productID = productID;
+        this.totalPrice = totalPrice;
+
+    }
+
+    public Integer getCartItemID() {
+        return cartItemID;
+    }
+
+    public void setCartItemID(Integer cartItemID) {
+        this.cartItemID = cartItemID;
     }
 
     public Integer getUserID() {
@@ -42,27 +57,30 @@ public class Cart {
         this.userID = userID;
     }
 
-    public Product getProduct() {
-        return product;
+    public Integer getProductID() {
+        return productID;
     }
 
-    public void setProduct(Integer productID) {
-        this.product = product;
+    public void setProductID(Integer productID) {
+        this.productID = productID;
     }
 
-    public Integer getNumOfProducts() {
+    public Integer getNumOfProduct() {
         return numOfProduct;
     }
 
-    public void setNumOfProducts(Integer numOfProducts) {
-        this.numOfProduct = numOfProducts;
+    public void setNumOfProduct(Integer numOfProduct) {
+        this.numOfProduct = numOfProduct;
     }
 
     public BigDecimal getTotalPrice() {
-        return product.getProductPrice().multiply(BigDecimal.valueOf(numOfProduct));
+        return totalPrice;
     }
 
+    public void setTotalPrice(BigDecimal totalPrice) {
+        this.totalPrice = totalPrice;
+    }
 
-
+    //product.getProductPrice().multiply(BigDecimal.valueOf(numOfProduct));
 }
 

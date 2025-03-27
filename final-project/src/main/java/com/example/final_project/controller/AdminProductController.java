@@ -7,7 +7,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
+import java.math.BigDecimal;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 import java.util.Optional;
 
@@ -31,11 +37,35 @@ public class AdminProductController {
     }
 
     @PostMapping("/products/create")
-    public ResponseEntity<Product> createProduct(@RequestBody Product product){
-        productDao.save(product);
-        return ResponseEntity.status(HttpStatus.CREATED).body(product);
+    public ResponseEntity<Product> createProduct(
+            @RequestParam("productName") String productName,
+            @RequestParam("productDesc") String productDesc,
+            @RequestParam("productPrice") BigDecimal productPrice,
+            @RequestParam("stock") Integer stock,
+            @RequestParam("categoryID") Integer categoryID,
+            @RequestParam("image") MultipartFile image
+    ) {
+        try {
+            String fileName = image.getOriginalFilename();
+            String uploadDir = "src/main/resources/static/images/";
+            Path path = Paths.get(uploadDir + fileName);
+            Files.write(path, image.getBytes());
 
+            Product product = new Product();
+            product.setProductName(productName);
+            product.setProductDesc(productDesc);
+            product.setProductPrice(productPrice);
+            product.setStock(stock);
+            product.setCategoryID(categoryID);
+            product.setImageUrl(fileName);
+
+            productDao.save(product);
+            return ResponseEntity.status(HttpStatus.CREATED).body(product);
+        } catch (IOException e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
     }
+
 
     @PutMapping("/products/edit/{product_name}")
     public ResponseEntity<Product> editProduct(@PathVariable String product_name, @RequestBody Product editInfo){

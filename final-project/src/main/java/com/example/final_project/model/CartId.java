@@ -1,3 +1,4 @@
+/*
 package com.example.final_project.model;
 
 import java.io.Serializable;
@@ -27,3 +28,4 @@ public class CartId implements Serializable {
         return Objects.hash(userID, product);
     }
 }
+*/
