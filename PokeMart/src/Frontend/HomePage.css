@@ -91,3 +91,12 @@
   font-size: 1.5em;
   color: #333;
 }
+
+.header {
+    position: absolute;
+    top: 10px;
+    left: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+}

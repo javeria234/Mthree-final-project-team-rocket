@@ -16,18 +16,24 @@ public class LoginController {
     private UserDao userDao;
 
     @PostMapping("/login")
-    public ResponseEntity<?> login(@RequestParam String email, @RequestParam String password) {
-
-        User user = userDao.findByEmail(email);
+    public ResponseEntity<?> login(@RequestBody LoginRequest loginRequest) {
+        User user = userDao.findByEmail(loginRequest.getEmail());
 
         if (user != null) {
-            if (user.getPassword().equals(password)) {
-                return ResponseEntity.ok(new LoginResponse("Logged in as " + user.getRoleName(), true, user.getUserID()));
+            if (user.getPassword().equals(loginRequest.getPassword())) {
+                return ResponseEntity.ok(new LoginResponse(
+                        "Welcome " + user.getFName() + "!",
+                        true,
+                        user.getUserID(),
+                        user.getFName() // Include the username
+                ));
             } else {
-                return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(new LoginResponse("Invalid password", false, null));
+                return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                        .body(new LoginResponse("Invalid password", false, null, null));
             }
         } else {
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(new LoginResponse("User not found", false, null));
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                    .body(new LoginResponse("User not found", false, null, null));
         }
     }
 
@@ -36,11 +42,13 @@ public class LoginController {
         private String message;
         private boolean success;
         private Integer userId;
+        private String fName;
 
-        public LoginResponse(String message, boolean success, Integer userId) {
+        public LoginResponse(String message, boolean success, Integer userId, String fName) {
             this.message = message;
             this.success = success;
             this.userId = userId;
+            this.fName = fName;
         }
 
         public String getMessage() {
@@ -54,5 +62,32 @@ public class LoginController {
         public Integer getUserId() {
             return userId;
         }
+
+        public String getfName() {
+            return fName;
+        }
+    }
+
+    static class LoginRequest {
+        private String email;
+        private String password;
+
+        public String getEmail() {
+            return email;
+        }
+
+        public void setEmail(String email) {
+            this.email = email;
+        }
+
+        public String getPassword() {
+            return password;
+        }
+
+        public void setPassword(String password) {
+            this.password = password;
+        }
+
+
     }
 }
