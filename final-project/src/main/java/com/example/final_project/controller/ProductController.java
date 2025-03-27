@@ -18,13 +18,9 @@ public class ProductController {
     private ProductDao productDao;
 
     @GetMapping("/category/{categoryId}")
-    public ResponseEntity<List<String>> getProductsByCategory(@PathVariable("categoryId") Integer categoryId) {
+    public ResponseEntity<List<Product>> getProductsByCategory(@PathVariable("categoryId") Integer categoryId) {
         List<Product> products = productDao.findByCategoryID(categoryId);
-        List<String> productName = new ArrayList<>();
-        for (Product product : products){
-            productName.add(product.getProductName());
-        }
-        return ResponseEntity.ok(productName);
+        return ResponseEntity.ok(products);
     }
 
     @GetMapping("/product/{productName}")

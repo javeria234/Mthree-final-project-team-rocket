@@ -1,4 +1,4 @@
-.fireTypeContainer {
+.pokemonTypeContainer {
   background-image: url('../Images/img_1.png');
   background-size: cover;
   background-position: center;
@@ -24,19 +24,19 @@
   margin-bottom: 20px;
 }
 
-.fireTypeLogo {
+.pokemonTypeLogo {
   width: 40px;
   margin-right: 20px;
 }
 
-.fireTypeCart {
+.pokemonTypeCart {
   width: 40px;
   position: absolute;
   top: 20px;
   right: 20px; /* Adjust right for cart */
 }
 
-.fireTypeLogout {
+.pokemonTypeLogout {
   width: 40px;
   position: absolute;
   top: 20px;
@@ -44,14 +44,14 @@
   cursor: pointer;
 }
 
-.fireTypeTitle {
+.pokemonTypeTitle {
   font-size: 2.5em;
   margin: 0;
   color: white;
   font-weight: bold;
 }
 
-.fireTypeSubtitle {
+.pokemonTypeSubtitle {
   font-size: 1.5em;
   margin-bottom: 20px;
 }
@@ -260,4 +260,10 @@
   border-radius: 30px;
   cursor: pointer;
   align-self: stretch;
+}
+
+.lowStockWarning {
+  color: #ff5555;
+  font-weight: bold;
+  margin-top: 10px;
 }

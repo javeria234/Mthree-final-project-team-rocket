@@ -19,12 +19,16 @@ function LoginPage() {
                 password
             });
 
-            console.log("Login Response:", response.data); // Debugging
-
             if (response.data.success) {
-                localStorage.setItem("userName", response.data.userName); // Store username
-                console.log("Stored userName:", localStorage.getItem("userName")); // Verify storage
-                navigate("/home");
+                localStorage.setItem("userName", response.data.fName); // Store username
+                localStorage.setItem("userId", response.data.userId); // Store user ID
+                localStorage.setItem("userRole", response.data.roleName);
+
+                if (response.data.roleName === "Admin") {
+                    navigate("/admin");
+                } else {
+                    navigate("/home");
+                }
             } else {
                 alert(response.data.message);
             }

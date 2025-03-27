@@ -25,47 +25,40 @@ public class LoginController {
                         "Welcome " + user.getFName() + "!",
                         true,
                         user.getUserID(),
-                        user.getFName() // Include the username
+                        user.getFName(),
+                        user.getRoleName() // Return role
                 ));
             } else {
                 return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
-                        .body(new LoginResponse("Invalid password", false, null, null));
+                        .body(new LoginResponse("Invalid password", false, null, null, null));
             }
         } else {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
-                    .body(new LoginResponse("User not found", false, null, null));
+                    .body(new LoginResponse("User not found", false, null, null, null));
         }
     }
 
-    // Inner class to represent the login response
+    //inner class to represent the login response
     static class LoginResponse {
         private String message;
         private boolean success;
         private Integer userId;
         private String fName;
+        private String roleName;
 
-        public LoginResponse(String message, boolean success, Integer userId, String fName) {
+        public LoginResponse(String message, boolean success, Integer userId, String fName, String roleName) {
             this.message = message;
             this.success = success;
             this.userId = userId;
             this.fName = fName;
+            this.roleName = roleName;
         }
 
-        public String getMessage() {
-            return message;
-        }
-
-        public boolean isSuccess() {
-            return success;
-        }
-
-        public Integer getUserId() {
-            return userId;
-        }
-
-        public String getfName() {
-            return fName;
-        }
+        public String getMessage() { return message; }
+        public boolean isSuccess() { return success; }
+        public Integer getUserId() { return userId; }
+        public String getfName() { return fName; }
+        public String getRoleName() { return roleName; }
     }
 
     static class LoginRequest {

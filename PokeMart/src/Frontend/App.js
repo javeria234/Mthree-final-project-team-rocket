@@ -5,10 +5,9 @@ import pokeballLogo from '../Images/Pokeball.png';
 import figurinesImage from '../Images/figurines_mainpage.png';
 import LoginPage from './LoginPage';
 import HomePage from './HomePage';
-import FirePage from './FirePage';
-import CharmanderProduct from "./CharmanderProduct";
-import CharmeleonProduct from "./CharmeleonProduct"; // Import CharmeleonProduct
-import CharizardProduct from "./CharizardProduct"; // Import CharizardProduct
+import ProductsByCategoryPage from './ProductsByCategoryPage';
+import AdminPage from "./AdminPage";
+import ProductPage from "./ProductPage";
 
 function App() {
     const [showFigurines, setShowFigurines] = useState(false);
@@ -44,10 +43,9 @@ function App() {
                 } />
                 <Route path="/login" element={<LoginPage />} />
                 <Route path="/home" element={<HomePage />} />
-                <Route path="/fire" element={<FirePage />} />
-                <Route path="/product/charmander" element={<CharmanderProduct />} />
-                <Route path="/product/charmeleon" element={<CharmeleonProduct />} />
-                <Route path="/product/charizard" element={<CharizardProduct />} />
+                <Route path="/category/:categoryId" element={<ProductsByCategoryPage />} />
+                <Route path="/admin" element={<AdminPage />} />
+                <Route path="/product/:productName" element={<ProductPage />} />
             </Routes>
         </div>
     );

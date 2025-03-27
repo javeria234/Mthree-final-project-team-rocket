@@ -1,0 +1,109 @@
+.editProductContainer {
+  background-image: url('../Images/img_1.png');
+  background-size: cover;
+  background-position: center;
+  border-radius: 40px;
+  height: 500px;
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+  text-align: center;
+  color: white;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+
+.editProductLogo {
+  width: 40px;
+  margin-right: 20px;
+}
+
+.editProductLogout {
+  width: 40px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+}
+
+.editProductTitle {
+  font-size: 2.5em;
+  margin: 0;
+  color: white;
+  font-weight: bold;
+}
+
+.productEditSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.productImageEdit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.productImage {
+  width: 250px;
+  height: 250px;
+  object-fit: contain;
+  margin-bottom: 0px;
+}
+
+.quantityControls {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.quantityButton {
+  background-color: #070606;
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  margin: 0 5px;
+  cursor: pointer;
+  margin-bottom: -5px;
+}
+
+.quantity {
+  margin: 0 10px;
+  font-size: 1.2em;
+  color: white;
+}
+
+.buttonContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: -10px;
+}
+
+.changeImageButton, .saveButton {
+  background-color: #070606;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  font-size: 15px;
+  font-style: inherit;
+  border-radius: 30px;
+  cursor: pointer;
+  width: 250px;
+  box-sizing: border-box;
+  margin-top: 10px;
+}
+
+.changeImageButton:hover, .saveButton:hover {
+  background-color: midnightblue;
+}

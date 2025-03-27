@@ -29,19 +29,21 @@ public class Product {
     @Column(name = "categoryID", nullable = false)
     private Integer categoryID;
 
-    //@Column(name = "imageUrl")
+    @Column(name = "imageUrl", nullable = true)
+    private String imageUrl;
 
     public Product(){
 
     }
 
-    public Product(Integer productID, String productName, String productDesc, BigDecimal productPrice, Integer stock, Integer categoryID) {
+    public Product(Integer productID, String productName, String productDesc, BigDecimal productPrice, Integer stock, Integer categoryID,String imageUrl) {
         this.productID = productID;
         this.productName = productName;
         this.productPrice = productPrice;
         this.productDesc = productDesc;
         this.stock = stock;
         this.categoryID = categoryID;
+        this.imageUrl = imageUrl;
 
     }
 
@@ -90,5 +92,13 @@ public class Product {
 
     public void setCategoryID(Integer categoryID) {
         this.categoryID = categoryID;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 }
