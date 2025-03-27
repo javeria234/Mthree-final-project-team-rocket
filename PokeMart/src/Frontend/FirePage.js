@@ -21,11 +21,9 @@ function FireTypePage() {
 
     return (
         <div className="fireTypeContainer">
-            <div className="topBar">
-                <img src={pokeballLogo} alt="Pokeball Logo" className="fireTypeLogo" />
-                <img src={logoutLogo} alt="Logout Logo" className="fireTypeLogout" onClick={handleLogoutClick} />
-                <img src={cartLogo} alt="Cart Logo" className="fireTypeCart" />
-            </div>
+            <img src={pokeballLogo} alt="Pokeball Logo" className="fireTypeLogo" />
+            <img src={logoutLogo} alt="Logout Logo" className="fireTypeLogout" onClick={handleLogoutClick} />
+            <img src={cartLogo} alt="Cart Logo" className="fireTypeCart" />
             <h1 className="fireTypeTitle">POKEMON-SHOP</h1>
             <h2 className="fireTypeSubtitle">Fire type</h2>
             <div className="pokemonGrid">

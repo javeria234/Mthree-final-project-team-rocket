@@ -34,11 +34,9 @@ function ProductPage() {
 
     return (
         <div className="productContainer">
-            <div className="topBar">
-                <img src={pokeballLogo} alt="Pokeball Logo" className="productLogo" />
-                <img src={logoutLogo} alt="Logout Logo" className="productLogout" onClick={handleLogoutClick} />
-                <img src={cartLogo} alt="Cart Logo" className="productCart" />
-            </div>
+            <img src={pokeballLogo} alt="Pokeball Logo" className="productLogo" />
+            <img src={logoutLogo} alt="Logout Logo" className="productLogout" onClick={handleLogoutClick} />
+            <img src={cartLogo} alt="Cart Logo" className="productCart" />
             <h1 className="productTitle">POKEMON-SHOP</h1>
             <div className="productCard">
                 <h3 className="productName">Charmander</h3>

@@ -12,6 +12,7 @@ import CharizardProduct from "./CharizardProduct";
 import CartPage from "./CartPage";
 import AdminPage from "./AdminPage";
 import EditProductPage from "./EditProductPage";
+import AddProductForm from "./AddProductForm"; // Import AddProductPage
 
 function App() {
     const [showFigurines, setShowFigurines] = useState(false);
@@ -54,6 +55,7 @@ function App() {
                 <Route path="/charmander-cart" element={<CartPage />} />
                 <Route path="/admin" element={<AdminPage />} />
                 <Route path="/edit-product" element={<EditProductPage />} />
+                <Route path="/add-product" element={<AddProductForm />} /> {/* Add AddProductPage route */}
             </Routes>
         </div>
     );
