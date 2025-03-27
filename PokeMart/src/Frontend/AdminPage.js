@@ -1,4 +1,4 @@
-import React, { useEffect ,useState } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './AdminPage.css';
 import pokeballLogo from "../Images/Pokeball.png";
@@ -6,27 +6,17 @@ import logoutLogo from "../Images/logout.png";
 import charmander from "../Images/charmander.png";
 import charmeleon from "../Images/charmeleon.png";
 import charizard from "../Images/charizard.png";
-import RemoveConfirmationPage from './RemoveConfirmationPage'; // Import RemoveProductConfirmation
+import RemoveConfirmationPage from './RemoveConfirmationPage';
+import AddProductForm from './AddProductForm'; // Import AddProductForm
 
 function AdminPage() {
     const navigate = useNavigate();
-    const [userName, setUserName] = useState("");
     const [showRemoveConfirmation, setShowRemoveConfirmation] = useState(false);
     const [productToRemove, setProductToRemove] = useState(null);
-
-    useEffect(() => {
-        const storedUserName = localStorage.getItem("userName");
-        const userRole = localStorage.getItem("userRole");
-
-        if (!storedUserName || userRole !== "Admin") {
-            navigate("/login"); // Redirect unauthorized users
-        } else {
-            setUserName(storedUserName);
-        }
-    }, []);
+    const [showAddProductForm, setShowAddProductForm] = useState(false);
 
     const handleLogoutClick = () => {
-         navigate("/login");
+        console.log('Admin Logout button clicked!');
     };
 
     const handleEditClick = () => {
@@ -50,32 +40,34 @@ function AdminPage() {
         setProductToRemove(null);
     };
 
+    const handleAddProductClick = () => {
+        navigate('/add-product'); // Navigate to AddProductForm page
+    };
+
     return (
         <div className="adminContainer">
-        <div className="header">
-            <h2 className="username">{userName ? `${userName}` : ""}</h2>
-        </div>
             <div className="topBar">
-                <img src={pokeballLogo} alt="Pokeball Logo" className="adminLogo" />
+                <img src={pokeballLogo} alt="Pokeball Logo" className="adminLogo1" />
                 <img src={logoutLogo} alt="Logout Logo" className="adminLogout" onClick={handleLogoutClick} />
             </div>
-            <h1 className="adminTitle">POKEMON-SHOP</h1>
+            <h1 className="adminTitle1">POKEMON-SHOP</h1>
             <h2 className="adminSubtitle">Products</h2>
+            <button className="addProductButton" onClick={handleAddProductClick}>Add Product</button>
             <div className="adminProducts">
                 <div className="adminProduct">
                     <img src={charmander} alt="Charmander" className="productImage1" />
-                    <button className="editButton" onClick={handleEditClick}>Edit &gt;</button>
-                    <button className="removeButton" onClick={() => handleRemoveClick('charmander')}>Remove &gt;</button>
+                    <button className="editButton" onClick={handleEditClick}>Edit</button>
+                    <button className="removeButton" onClick={() => handleRemoveClick('charmander')}>Remove</button>
                 </div>
                 <div className="adminProduct">
                     <img src={charmeleon} alt="Charmeleon" className="productImage1" />
-                    <button className="editButton" onClick={handleEditClick}>Edit &gt;</button>
-                    <button className="removeButton" onClick={() => handleRemoveClick('charmeleon')}>Remove &gt;</button>
+                    <button className="editButton" onClick={handleEditClick}>Edit</button>
+                    <button className="removeButton" onClick={() => handleRemoveClick('charmeleon')}>Remove</button>
                 </div>
                 <div className="adminProduct">
                     <img src={charizard} alt="Charizard" className="productImage1" />
-                    <button className="editButton" onClick={handleEditClick}>Edit &gt;</button>
-                    <button className="removeButton" onClick={() => handleRemoveClick('charizard')}>Remove &gt;</button>
+                    <button className="editButton" onClick={handleEditClick}>Edit</button>
+                    <button className="removeButton" onClick={() => handleRemoveClick('charizard')}>Remove</button>
                 </div>
             </div>
             {showRemoveConfirmation && (

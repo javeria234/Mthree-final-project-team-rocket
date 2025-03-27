@@ -24,8 +24,11 @@
   margin-bottom: 20px;
 }
 
-.adminLogo {
-  width: 40px;
+.adminLogo1 {
+  width: 50px;
+  margin-bottom: 5px;
+  margin-left: 230px;
+  position: absolute;
 }
 
 .adminLogout {
@@ -36,7 +39,7 @@
   cursor: pointer;
 }
 
-.adminTitle {
+.adminTitle1 {
   font-size: 2.5em;
   margin: 0;
   color: white;
@@ -51,6 +54,7 @@
 .adminProducts {
   display: flex;
   justify-content: space-around;
+  color: black;
   width: 100%;
 }
 
@@ -65,7 +69,7 @@
 
 .productImage1{
   max-width: 130%;
-  max-height: 62%;
+  max-height: 50%;
   object-fit: contain;
 }
 
@@ -82,5 +86,19 @@
 }
 
 .editButton:hover, .removeButton:hover {
+  background-color: midnightblue;
+}
+.addProductButton {
+  background-color: black;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  font-size: 1em;
+}
+
+.addProductButton:hover {
   background-color: midnightblue;
 }
