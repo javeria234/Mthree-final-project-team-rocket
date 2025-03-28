@@ -3,8 +3,8 @@
   background-size: cover;
   background-position: center;
   border-radius: 40px;
-  height: 500px;
-  width: 600px;
+  height: 600px;
+  width: 800px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -16,10 +16,9 @@
   box-sizing: border-box;
 }
 
-
 .editProductLogo {
   width: 40px;
-  margin-right: 20px;
+  margin-top: 10px;
 }
 
 .editProductLogout {
@@ -32,78 +31,137 @@
 
 .editProductTitle {
   font-size: 2.5em;
-  margin: 0;
+  margin: 10px 0;
   color: white;
   font-weight: bold;
 }
 
 .productEditSection {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
   width: 100%;
-  margin-bottom: 20px;
 }
 
-.productImageEdit {
+.editFormContent {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.leftColumn, .rightColumn {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 10px;
-  box-sizing: border-box;
 }
 
 .productImage {
-  width: 250px;
-  height: 250px;
+  width: 200px;
+  height: 200px;
   object-fit: contain;
-  margin-bottom: 0px;
+  background-color: white;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.changeImageButton {
+  background-color: #070606;
+  color: white;
+  padding: 8px 10px;
+  border: none;
+  font-size: 14px;
+  border-radius: 30px;
+  cursor: pointer;
+  margin-top: 5px;
+  width: 180px;
+  text-align: center;
+}
+
+.inputField {
+  width: 220px;
+  padding: 8px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  border: none;
+  font-size: 14px;
+}
+
+textarea.inputField {
+  resize: none;
+  height: 60px;
+}
+
+.saveButton {
+  background-color: #070606;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.saveButton:hover, .changeImageButton:hover {
+  background-color: midnightblue;
 }
 
 .quantityControls {
   display: flex;
   align-items: center;
-  margin-bottom: 10px;
-}
-
-.quantityButton {
-  background-color: #070606;
-  color: white;
-  padding: 5px 10px;
-  border: none;
-  border-radius: 5px;
-  margin: 0 5px;
-  cursor: pointer;
-  margin-bottom: -5px;
-}
-
-.quantity {
-  margin: 0 10px;
-  font-size: 1.2em;
-  color: white;
-}
-
-.buttonContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: -10px;
-}
-
-.changeImageButton, .saveButton {
-  background-color: #070606;
-  color: white;
-  padding: 10px 15px;
-  border: none;
-  font-size: 15px;
-  font-style: inherit;
-  border-radius: 30px;
-  cursor: pointer;
-  width: 250px;
-  box-sizing: border-box;
+  justify-content: center;
   margin-top: 10px;
+  gap: 5px;
 }
 
-.changeImageButton:hover, .saveButton:hover {
+.qtyBtnSmall {
+  width: 25px;
+  height: 25px;
+  font-size: 14px;
+  padding: 2px;
+  border-radius: 5px;
+  background-color: #070606;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.qtyDisplaySmall {
+  font-size: 14px;
+  color: white;
+  width: 20px;
+  text-align: center;
+}
+
+.qtyBtnSmall:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.qtyBtnSmall:hover:not(:disabled) {
   background-color: midnightblue;
 }
+
+
+.saveButton:disabled, .changeImageButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.editProductLogout {
+  width: 40px;
+  position: absolute;
+  top: 20px;
+  right: 70px; /* Logout icon slightly to the left */
+  cursor: pointer;
+}
+
+.editProductCart {
+  width: 40px;
+  position: absolute;
+  top: 20px;
+  right: 20px; /* Cart icon further right */
+  cursor: pointer;
+}
+

@@ -10,6 +10,7 @@ import AdminPage from "./AdminPage";
 import ProductPage from "./ProductPage";
 import AddProductForm from"./AddProductForm"
 import EditProductPage from"./EditProductPage"
+import CartPage from "./CartPage"
 
 function App() {
     const [showFigurines, setShowFigurines] = useState(false);
@@ -50,6 +51,7 @@ function App() {
                 <Route path="/product/:productName" element={<ProductPage />} />
                 <Route path="/edit-product/:productName" element={<EditProductPage/>} />
                 <Route path="/add-product" element={<AddProductForm />} />
+                <Route path="/cart" element={<CartPage />} />
             </Routes>
         </div>
     );

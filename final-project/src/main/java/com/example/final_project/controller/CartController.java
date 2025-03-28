@@ -3,6 +3,7 @@ package com.example.final_project.controller;
 import com.example.final_project.dao.CartDao;
 import com.example.final_project.dao.ProductDao;
 import com.example.final_project.model.Cart;
+import com.example.final_project.model.CartItemDTO;
 import com.example.final_project.model.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -27,16 +28,34 @@ public class CartController {
     private ProductDao productDao;
 
     @GetMapping("/{userId}")
-    public ResponseEntity<List<Cart>>getCartItemsByUserID(@PathVariable Integer userId) {
+    public ResponseEntity<List<CartItemDTO>> getCartItemsByUserID(@PathVariable Integer userId) {
         List<Cart> allItems = cartDao.findAll();
-        List<Cart> userItems = new ArrayList<>();
-        for(Cart item : allItems){
-            if(Objects.equals(item.getUserID(), userId)){
-                userItems.add(item);
+        List<CartItemDTO> userItems = new ArrayList<>();
+
+        for (Cart item : allItems) {
+            if (Objects.equals(item.getUserID(), userId)) {
+                Optional<Product> productOpt = productDao.findById(item.getProductID());
+                if (productOpt.isPresent()) {
+                    Product product = productOpt.get();
+
+                    CartItemDTO dto = new CartItemDTO(
+                            item.getCartItemID(),
+                            item.getUserID(),
+                            product.getProductID(),
+                            item.getNumOfProduct(),
+                            item.getTotalPrice(),
+                            product.getProductName(),
+                            product.getImageUrl()
+                    );
+
+                    userItems.add(dto);
+                }
             }
         }
+
         return ResponseEntity.ok(userItems);
     }
+
 
     @GetMapping("/{userId}/{productId}")
     public ResponseEntity<Cart> getOneCartItem(@PathVariable Integer userId, @PathVariable Integer productId) {
@@ -83,10 +102,6 @@ public class CartController {
            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
        }
 
-
-
-
-
     }
 
     @DeleteMapping("/{userId}/{productId}")
@@ -104,7 +119,6 @@ public class CartController {
         }
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 
-
     }
 
     @DeleteMapping("/{userId}")
@@ -120,7 +134,12 @@ public class CartController {
             }
             if (oProduct.isPresent()){
                 Product product = oProduct.get();
-                product.setStock(product.getStock() - stockTaker);
+                if (stockTaker < 0){
+                    product.setStock(0);
+                } else {
+                    product.setStock(product.getStock() - stockTaker);
+                }
+
                 product.setProductID(product.getProductID());
                 Product newProduct = productDao.save(product);
             }

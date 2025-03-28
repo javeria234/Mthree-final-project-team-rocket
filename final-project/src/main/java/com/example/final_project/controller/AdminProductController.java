@@ -46,10 +46,16 @@ public class AdminProductController {
             @RequestParam("image") MultipartFile image
     ) {
         try {
+            String uploadDir = "C:/Users/promo/final-project-team-rocket/final-project/imageUploads";
+            Path uploadPath = Paths.get(uploadDir);
+            if (!Files.exists(uploadPath)) {
+                Files.createDirectories(uploadPath);
+            }
+
             String fileName = image.getOriginalFilename();
-            String uploadDir = "src/main/resources/static/images/";
-            Path path = Paths.get(uploadDir + fileName);
-            Files.write(path, image.getBytes());
+            assert fileName != null;
+            Path filePath = uploadPath.resolve(fileName);
+            Files.write(filePath, image.getBytes());
 
             Product product = new Product();
             product.setProductName(productName);
@@ -66,34 +72,47 @@ public class AdminProductController {
         }
     }
 
-
     @PutMapping("/products/edit/{product_name}")
-    public ResponseEntity<Product> editProduct(@PathVariable String product_name, @RequestBody Product editInfo){
+    public ResponseEntity<Product> editProduct(
+            @PathVariable String product_name,
+            @RequestParam("productName") String newName,
+            @RequestParam("productDesc") String productDesc,
+            @RequestParam("productPrice") BigDecimal productPrice,
+            @RequestParam("stock") Integer stock,
+            @RequestParam(value = "image", required = false) MultipartFile image
+    ) {
         Optional<Product> product = Optional.ofNullable(productDao.findByProductName(product_name));
-        if(product.isPresent()) {
+        if (product.isPresent()) {
             Product oldProduct = product.get();
-            if(editInfo.getProductName() != null){
-                oldProduct.setProductName(editInfo.getProductName());
-            }
-            if(editInfo.getProductDesc() != null){
-                oldProduct.setProductDesc(editInfo.getProductDesc());
-            }
-            if(editInfo.getProductPrice() != null){
-                oldProduct.setProductPrice(editInfo.getProductPrice());
-            }
-            if(editInfo.getStock() != null){
-                oldProduct.setStock(editInfo.getStock());
+
+            // Update fields
+            oldProduct.setProductName(newName);
+            oldProduct.setProductDesc(productDesc);
+            oldProduct.setProductPrice(productPrice);
+            oldProduct.setStock(stock);
+
+            if (image != null && !image.isEmpty()) {
+                try {
+                    String uploadDir = "C:/Users/promo/final-project-team-rocket/final-project/imageUploads";
+                    Path uploadPath = Paths.get(uploadDir);
+                    if (!Files.exists(uploadPath)) {
+                        Files.createDirectories(uploadPath);
+                    }
+                    String fileName = image.getOriginalFilename();
+                    assert fileName != null;
+                    Path filePath = uploadPath.resolve(fileName);
+                    Files.write(filePath, image.getBytes());
+                    oldProduct.setImageUrl(fileName);
+                } catch (IOException e) {
+                    return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+                }
             }
 
-            oldProduct.setProductID(oldProduct.getProductID()); //STOPS INCREMENT
-
-            Product editProduct = productDao.save(oldProduct);
-
-            return new ResponseEntity<Product>(editProduct, HttpStatus.OK);
+            Product editedProduct = productDao.save(oldProduct);
+            return new ResponseEntity<>(editedProduct, HttpStatus.OK);
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
-
     }
 
     @DeleteMapping("/products/{product_name}")

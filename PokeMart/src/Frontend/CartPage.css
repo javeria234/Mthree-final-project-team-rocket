@@ -254,3 +254,59 @@
   cursor: pointer;
   align-self: stretch;
 }
+
+.cartHeaders, .cartItemRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 10px;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+  width: 100%;
+}
+
+.cartHeaders {
+  font-weight: bold;
+  border-bottom: 2px solid white;
+}
+
+.headerImage {
+  width: 15%;
+  text-align: left;
+}
+
+.headerName {
+  width: 45%;
+  text-align: left;
+}
+
+.headerQuantity, .cartItemQuantity {
+  width: 20%;
+  text-align: center;
+}
+
+.headerTotal, .cartItemTotal {
+  width: 20%;
+  text-align: center;
+}
+
+.cartItemImage {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  border-radius: 5px;
+}
+
+.cartItemName {
+  width: 45%;
+  text-align: left;
+  padding-left: 10px;
+  font-size: 14px;
+}
+
+.homeButton {
+  width: 40px;
+  position: absolute;
+  top: 20px;
+  right: 110px; /* Adjust this spacing if needed */
+  cursor: pointer;
+}

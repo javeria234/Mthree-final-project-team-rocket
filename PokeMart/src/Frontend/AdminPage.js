@@ -13,21 +13,23 @@ function AdminPage() {
     const [showRemoveConfirmation, setShowRemoveConfirmation] = useState(false);
     const [productToRemove, setProductToRemove] = useState(null);
     const [showAddProductForm, setShowAddProductForm] = useState(false);
+    const [userName, setUserName] = useState("");
 
     useEffect(() => {
-      axios.get("http://localhost:8080/api/admin/products")
-        .then(response => {
-          setProducts(response.data);
-        })
-        .catch(error => {
-          console.error("Error fetching products:", error);
-        });
+
+        axios.get("http://localhost:8080/api/admin/products")
+            .then(response => {
+              setProducts(response.data);
+            })
+            .catch(error => {
+              console.error("Error fetching products:", error);
+            });
     }, []);
 
 
 
     const handleLogoutClick = () => {
-        console.log('Admin Logout button clicked!');
+        navigate("/login");
     };
 
     const handleEditClick = (productName) => {
@@ -61,6 +63,11 @@ function AdminPage() {
         navigate('/add-product'); // Navigate to AddProductForm page
     };
 
+    const handleLogout = () => {
+            localStorage.removeItem("userName");
+            navigate("/");
+        };
+
     return (
         <div className="adminContainer">
             <div className="topBar">
@@ -75,7 +82,7 @@ function AdminPage() {
                 <div key={product.productID} className="adminProduct">
                 <h3 className="pokemonName">{product.productName}</h3>
                   <img
-                    src={`http://localhost:8080/images/${product.imageUrl}`}
+                    src={`http://localhost:8080/${product.imageUrl}`}
                     alt={product.productName}
                     className="productImage1"
                   />

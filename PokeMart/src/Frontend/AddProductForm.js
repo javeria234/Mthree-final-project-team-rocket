@@ -1,119 +1,154 @@
-// AddProductForm.js
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './AddProductForm.css';
+import './EditProductPage.css'; // Reuse same CSS
 import pokeballLogo from "../Images/Pokeball.png";
 import logoutLogo from "../Images/logout.png";
 
 function AddProductForm() {
     const navigate = useNavigate();
-    const [title, setTitle] = useState('');
-    const [description, setDescription] = useState('');
-    const [price, setPrice] = useState('');
-    const [stock, setStock] = useState('');
-    const [image, setImage] = useState(null);
     const [categories, setCategories] = useState([]);
-    const [selectedCategory, setSelectedCategory] = useState('');
+    const [product, setProduct] = useState({
+        productName: '',
+        productDesc: '',
+        productPrice: '',
+        stock: '',
+        categoryID: '',
+        image: null,
+    });
 
     useEffect(() => {
         fetch("http://localhost:8080/api/user/category")
             .then(res => res.json())
-            .then(data => {
-                setCategories(data); // This should return an array of categories
-            })
-            .catch(err => {
-                console.error("Error fetching categories:", err);
-            });
+            .then(data => setCategories(data))
+            .catch(err => console.error("Error fetching categories:", err));
     }, []);
 
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setProduct(prev => ({ ...prev, [name]: value }));
+    };
+
     const handleImageChange = (e) => {
-        setImage(e.target.files[0]);
+        setProduct(prev => ({ ...prev, image: e.target.files[0] }));
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         const formData = new FormData();
-        formData.append("productName", title);
-        formData.append("productDesc", description);
-        formData.append("productPrice", price);
-        formData.append("stock", stock);
-        formData.append("categoryID", selectedCategory);
-        formData.append("image", image);
+        formData.append("productName", product.productName);
+        formData.append("productDesc", product.productDesc);
+        formData.append("productPrice", product.productPrice);
+        formData.append("stock", product.stock);
+        formData.append("categoryID", product.categoryID);
+        formData.append("image", product.image);
 
         try {
             const response = await fetch("http://localhost:8080/api/admin/products/create", {
                 method: "POST",
-                body: formData
+                body: formData,
             });
 
             if (response.ok) {
                 alert("Product added successfully!");
-                navigate('/admin');
+                navigate("/admin");
             } else {
-                alert("Failed to add product");
+                alert("Failed to add product.");
             }
         } catch (err) {
-            console.error("Error submitting product:", err);
+            console.error("Error adding product:", err);
         }
     };
 
-
     const handleLogoutClick = () => {
-        console.log('Admin Logout button clicked!');
-        navigate('/admin');
+        navigate("/");
     };
 
     return (
-        <div className="addProductFormContainer">
-            <div className="formContent">
-                <div className="topBar">
-                    <div className="logoAndTitle">
-                        <img src={pokeballLogo} alt="Pokeball Logo" className="adminLogo2" />
-                        <h1 className="adminTitle2">POKEMON-SHOP</h1>
-                    </div>
-                    <img src={logoutLogo} alt="Logout Logo" className="adminLogout" onClick={handleLogoutClick} />
-                </div>
-                <div className="addProductFormBox">
-                    <h2>Add New Product</h2>
-                    <form onSubmit={handleSubmit}>
-                        <label htmlFor="title">Title:</label>
-                        <input type="text" id="title" value={title} onChange={(e) => setTitle(e.target.value)} required />
+        <div className="editProductContainer">
+            <img src={pokeballLogo} alt="Pokeball Logo" className="editProductLogo" />
+            <h1 className="editProductTitle">POKEMON-SHOP</h1>
+            <img src={logoutLogo} alt="Logout Logo" className="editProductLogout" onClick={handleLogoutClick} />
 
-                        <label htmlFor="description">Description:</label>
-                        <textarea id="description" value={description} onChange={(e) => setDescription(e.target.value)} required />
-
-                        <label htmlFor="price">Price:</label>
-                        <input type="number" id="price" value={price} onChange={(e) => setPrice(e.target.value)} required />
-
-                        <label htmlFor="stock">Stock:</label>
-                        <input type="number" id="stock" value={stock} onChange={(e) => setStock(e.target.value)} required />
-
-                        <label htmlFor="image">Image:</label>
-                        <input type="file" id="image" onChange={handleImageChange} accept="image/*" required />
-
-                        <label htmlFor="category">Category:</label>
-                        <select
-                            id="category"
-                            value={selectedCategory}
-                            onChange={(e) => setSelectedCategory(e.target.value)}
+            <form className="productEditSection" onSubmit={handleSubmit}>
+                <div className="editFormContent">
+                    <div className="leftColumn">
+                        <div className="productImage" style={{ backgroundColor: "white" }}>
+                            {product.image ? (
+                                <img
+                                    src={URL.createObjectURL(product.image)}
+                                    alt="Preview"
+                                    className="productImage"
+                                />
+                            ) : (
+                                <p style={{ color: "black" }}>No Image</p>
+                            )}
+                        </div>
+                        <input
+                            type="file"
+                            onChange={handleImageChange}
+                            className="changeImageButton"
                             required
+                        />
+                    </div>
+                    <div className="rightColumn">
+                        <input
+                            type="text"
+                            name="productName"
+                            value={product.productName}
+                            onChange={handleChange}
+                            required
+                            className="inputField"
+                            placeholder="Product Name"
+                        />
+
+                        <textarea
+                            name="productDesc"
+                            value={product.productDesc}
+                            onChange={handleChange}
+                            required
+                            className="inputField"
+                            placeholder="Description"
+                        />
+
+                        <input
+                            type="number"
+                            name="productPrice"
+                            value={product.productPrice}
+                            onChange={handleChange}
+                            required
+                            className="inputField"
+                            placeholder="Price"
+                        />
+
+                        <input
+                            type="number"
+                            name="stock"
+                            value={product.stock}
+                            onChange={handleChange}
+                            required
+                            className="inputField"
+                            placeholder="Stock"
+                        />
+
+                        <select
+                            name="categoryID"
+                            value={product.categoryID}
+                            onChange={handleChange}
+                            required
+                            className="inputField"
                         >
-                            <option value="">Select a Category</option>
-                            {categories.map((cat) => (
-                                <option key={cat.categoryID} value={cat.categoryID}>
-                                    {cat.categoryName}
+                            <option value="">Select Category</option>
+                            {categories.map((category, index) => (
+                                <option key={index} value={category.categoryID}>
+                                    {category.categoryName}
                                 </option>
                             ))}
                         </select>
-
-                        <div className="addProductPageButtons">
-                            <button type="submit">Add Product</button>
-                            <button type="button" onClick={() => navigate('/admin')}>Back to Admin</button>
-                        </div>
-                    </form>
+                    </div>
                 </div>
-            </div>
+                <button type="submit" className="saveButton">Add Product</button>
+            </form>
         </div>
     );
 }

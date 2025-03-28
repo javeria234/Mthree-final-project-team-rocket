@@ -5,11 +5,12 @@ import com.example.final_project.dao.ProductDao;
 import com.example.final_project.model.Cart;
 import com.example.final_project.model.Product;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.math.BigDecimal;
+import java.util.*;
 
 @RestController
 @RequestMapping("/api/products")
@@ -36,14 +37,38 @@ public class ProductController {
 
     //Add to cart
     @PostMapping("/{productName}/{user_id}")
-    public ResponseEntity<String> addProductToCart(@PathVariable("productName") String productName, @PathVariable("user_id") Integer user_id) {
-        Product product= productDao.findByProductName(productName);
-        Cart cartItem = new Cart();
-        cartItem.setProductID(product.getProductID());
-        cartItem.setNumOfProduct(1);
-        cartItem.setUserID(user_id);
-        cartItem.setTotalPrice(product.getProductPrice());
-        cartDao.save(cartItem);
+    public ResponseEntity<String> addProductToCart(
+            @PathVariable("productName") String productName,
+            @PathVariable("user_id") Integer user_id,
+            @RequestBody Map<String, Integer> request) {
+
+        Integer quantity = request.get("quantity");
+
+        Product product = productDao.findByProductName(productName);
+        if (product == null) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Product not found.");
+        }
+
+        Optional<Cart> existingCartItem = cartDao.findAll().stream()
+                .filter(c -> Objects.equals(c.getUserID(), user_id) && Objects.equals(c.getProductID(), product.getProductID()))
+                .findFirst();
+
+        if (existingCartItem.isPresent()) {
+            Cart cartItem = existingCartItem.get();
+            cartItem.setNumOfProduct(cartItem.getNumOfProduct() + quantity);
+            cartItem.setTotalPrice(product.getProductPrice().multiply(BigDecimal.valueOf(cartItem.getNumOfProduct())));
+            cartDao.save(cartItem);
+        } else {
+            // Add new cart item
+            Cart newCartItem = new Cart();
+            newCartItem.setProductID(product.getProductID());
+            newCartItem.setNumOfProduct(quantity);
+            newCartItem.setUserID(user_id);
+            newCartItem.setTotalPrice(product.getProductPrice().multiply(BigDecimal.valueOf(quantity)));
+            cartDao.save(newCartItem);
+        }
+
         return ResponseEntity.ok("Product added to cart!");
     }
+
 }

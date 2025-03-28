@@ -23,15 +23,13 @@ function ProductsByCategoryPage() {
             .catch(err => console.error("Failed to load categories:", err));
     }, [categoryId]);
 
-
     useEffect(() => {
-        setLoading(true); // Start loading
+        setLoading(true);
         fetch(`http://localhost:8080/api/products/category/${categoryId}`)
             .then((response) => response.json())
             .then((data) => {
-                console.log("Fetched Products:", data);
                 setProducts(data);
-                setLoading(false); // Done loading
+                setLoading(false);
             })
             .catch((error) => {
                 console.error("Error fetching products:", error);
@@ -44,8 +42,7 @@ function ProductsByCategoryPage() {
     };
 
     const handleLogoutClick = () => {
-        localStorage.removeItem("userName");
-        localStorage.removeItem("userRole");
+        localStorage.clear();
         navigate("/");
     };
 
@@ -54,30 +51,37 @@ function ProductsByCategoryPage() {
             <div className="topBar">
                 <img src={pokeballLogo} alt="Pokeball Logo" className="pokemonTypeLogo" />
                 <img src={logoutLogo} alt="Logout Logo" className="pokemonTypeLogout" onClick={handleLogoutClick} />
-                <img src={cartLogo} alt="Cart Logo" className="pokemonTypeCart" />
+                <img src={cartLogo} alt="Cart Logo" className="pokemonTypeCart" onClick={() => navigate("/cart")} />
             </div>
             <h1 className="pokemonTypeTitle">POKEMART</h1>
-            <h2 className="pokemonTypeSubtitle">Pokèmon Type: {categoryName}</h2>
+            <h2 className="pokemonTypeSubtitle">Pokémon Type: {categoryName}</h2>
 
-            <div className="pokemonGrid">
+            <div className="categoryProducts">
                 {loading ? (
                     <p className="noProductsMessage">Loading products...</p>
                 ) : products.length === 0 ? (
                     <p className="noProductsMessage">No products available for the moment.</p>
                 ) : (
                     products.map((product) => (
-                        <div key={product.productID} className="pokemonCard">
+                        <div key={product.productID} className="categoryProduct">
                             <h3 className="pokemonName">{product.productName}</h3>
                             <div className="pokemonImageContainer">
                                 <img
-                                    src={`http://localhost:8080/images/${product.imageUrl}`}
+                                    src={`http://localhost:8080/${product.imageUrl}`}
                                     alt={product.productName}
-                                    className="pokemonImage"
+                                    className={`pokemonImage ${product.stock === 0 ? "outOfStockImage" : ""}`}
                                 />
+                                {product.stock === 0 && <div className="outOfStockOverlay">Out of Stock</div>}
                             </div>
-                            <button className="checkOutButton" onClick={() => handleCheckoutClick(product.productName)}>
-                                Check it out
-                            </button>
+                            {product.stock > 0 ? (
+                                <button className="checkOutButton" onClick={() => handleCheckoutClick(product.productName)}>
+                                    Check it out
+                                </button>
+                            ) : (
+                                <button className="checkOutButton disabledButton" disabled>
+                                    Out of Stock
+                                </button>
+                            )}
                         </div>
                     ))
                 )}
