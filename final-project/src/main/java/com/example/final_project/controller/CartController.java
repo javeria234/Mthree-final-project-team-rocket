@@ -122,30 +122,30 @@ public class CartController {
     }
 
     @DeleteMapping("/{userId}")
-    public ResponseEntity<Void> checkout(@PathVariable Integer userId){
-        Integer stockTaker = 0;
+    public ResponseEntity<Void> checkout(@PathVariable Integer userId) {
+
         List<Cart> allItems = cartDao.findAll();
 
-        for(Cart item : allItems){
-            Optional<Product> oProduct = productDao.findById(item.getProductID());
-            if(Objects.equals(item.getUserID(), userId)){
-                cartDao.deleteById(item.getCartItemID());
-                stockTaker = item.getNumOfProduct();
-            }
-            if (oProduct.isPresent()){
-                Product product = oProduct.get();
-                if (stockTaker < 0){
-                    product.setStock(0);
-                } else {
-                    product.setStock(product.getStock() - stockTaker);
+        for (Cart item : allItems) {
+            if (Objects.equals(item.getUserID(), userId)) {
+                Optional<Product> oProduct = productDao.findById(item.getProductID());
+
+                if (oProduct.isPresent()) {
+                    Product product = oProduct.get();
+
+                    int newStock = product.getStock() - item.getNumOfProduct();
+
+                    // Clearly ensure stock never becomes negative:
+                    product.setStock(Math.max(newStock, 0));
+
+                    productDao.save(product);
                 }
 
-                product.setProductID(product.getProductID());
-                Product newProduct = productDao.save(product);
+                cartDao.deleteById(item.getCartItemID());
             }
         }
 
-        return new ResponseEntity<Void>(HttpStatus.OK);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
 

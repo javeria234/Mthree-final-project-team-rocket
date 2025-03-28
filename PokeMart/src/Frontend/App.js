@@ -40,7 +40,7 @@ function App() {
                         <h2 className="catch">Gotta buy them all!</h2>
                         <div className="preview">
                             <img src={figurinesImage} alt="Pokemon Figurines Preview" />
-                            <button className="shopButton" onClick={handleShopNowClick}>SHOP NOW</button>
+                            <h2 >SHOP NOW</h2>
                         </div>
                     </div>
                 } />

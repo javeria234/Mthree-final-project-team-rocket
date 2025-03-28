@@ -41,6 +41,10 @@ function ProductsByCategoryPage() {
         navigate(`/product/${productName}`);
     };
 
+    const handleHome= () => {
+                navigate("/home");
+    };
+
     const handleLogoutClick = () => {
         localStorage.clear();
         navigate("/");
@@ -49,6 +53,9 @@ function ProductsByCategoryPage() {
     return (
         <div className="pokemonTypeContainer">
             <div className="topBar">
+            <button className="homeButton" onClick={handleHome}>
+                HOME
+            </button>
                 <img src={pokeballLogo} alt="Pokeball Logo" className="pokemonTypeLogo" />
                 <img src={logoutLogo} alt="Logout Logo" className="pokemonTypeLogout" onClick={handleLogoutClick} />
                 <img src={cartLogo} alt="Cart Logo" className="pokemonTypeCart" onClick={() => navigate("/cart")} />

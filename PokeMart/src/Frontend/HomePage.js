@@ -45,7 +45,7 @@ function HomePage() {
                 <img src={pokeballLogo} alt="Pokeball Logo" className="logo3" />
                 <div className="icons-right">
                     <img src={logoutLogo} alt="Logout Logo" className="logoutLogo" onClick={handleLogout} />
-                    <img src={cartLogo} alt="Cart Logo" className="cartLogo" />
+                    <img src={cartLogo} alt="Cart Logo" className="cartLogo" onClick={() => navigate("/cart")} />
                 </div>
             </div>
             <h2 className="h2">POKEMART</h2>

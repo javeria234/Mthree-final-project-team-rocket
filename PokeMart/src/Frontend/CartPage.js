@@ -28,6 +28,10 @@ function CartPage() {
         navigate("/");
     };
 
+    const handleHome= () => {
+            navigate("/home");
+    };
+
     const handleCheckout = async () => {
         try {
             await axios.delete(`http://localhost:8080/api/cart/${userId}`);
@@ -42,6 +46,9 @@ function CartPage() {
 
     return (
         <div className="productContainer">
+            <button className="homeButton" onClick={handleHome}>
+                HOME
+            </button>
             <img src={pokeballLogo} alt="Pokeball Logo" className="productLogo" />
             <img src={logoutLogo} alt="Logout Logo" className="productLogout" onClick={handleLogoutClick} />
             <h1 className="productTitle">Your Cart</h1>

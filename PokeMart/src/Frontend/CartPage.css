@@ -304,9 +304,13 @@
 }
 
 .homeButton {
-  width: 40px;
-  position: absolute;
-  top: 20px;
-  right: 110px; /* Adjust this spacing if needed */
-  cursor: pointer;
+    width: 60px;
+    top: 20px;
+    right: 110px;
+    cursor: pointer;
+    margin-right: auto;
+    background-color: midnightblue;
+    color: white;
+    border: none;
 }
+
