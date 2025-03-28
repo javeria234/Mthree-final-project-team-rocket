@@ -1,4 +1,4 @@
-# Pokémon Figurines E-Commerce Application 🛒
+# 🛒 Pokémon Figurines E-Commerce Application 
 A full-stack e-commerce web application built to sell Pokémon figurines. Created using React for the frontend, Spring Boot and Java for the backend, and MySQL Workbench with JPA for database management.
 
 # 🚀 Project Overview
