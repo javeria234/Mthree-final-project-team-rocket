@@ -1,10 +1,10 @@
-#Pokémon Figurines E-Commerce Application 🛒
+# Pokémon Figurines E-Commerce Application 🛒
 A full-stack e-commerce web application built to sell Pokémon figurines. Created using React for the frontend, Spring Boot and Java for the backend, and MySQL Workbench with JPA for database management.
 
-#🚀 Project Overview
+# 🚀 Project Overview
 This project is designed as an e-commerce platform specifically for Pokémon enthusiasts. Users can browse, select, and purchase Pokémon figurines, while administrators can manage products via an admin panel. The application leverages modern web development tools and frameworks, offering a seamless user experience.
 
-#📚 Tech Stack
+# 📚 Tech Stack
 Frontend:
 
 React.js
@@ -27,7 +27,7 @@ Database:
 
 MySQL Workbench
 
-#🌟 Features
+# 🌟 Features
 User Authentication (Registration, Login, Logout)
 
 Product Browsing by Categories
@@ -42,7 +42,7 @@ Image Upload and Management
 
 Responsive and User-friendly Interface
 
-#👥 Team Contributions
+# 👥 Team Contributions
 The project was collaboratively developed with clear roles:
 
 Team Members	Responsibilities
@@ -50,7 +50,7 @@ Javeria	Primarily responsible for Frontend Development (React components, pages,
 Samuel	Primarily responsible for Backend Development (Spring Boot, REST APIs, Database setup and management, business logic implementation).
 Promodi (Me)	Worked extensively in connecting Frontend and Backend, integration, debugging, issue resolution, and assisting both frontend and backend developers.
 
-#⚙️ Installation and Setup
+# ⚙️ Installation and Setup
 🗃️ Database (MySQL Workbench)
 Install and set up MySQL Workbench.
 
