@@ -64,7 +64,7 @@ Promodi Colambage:	worked extensively in connecting Frontend and Backend, integr
 
 Example:
 
-```bash
+```
 spring.application.name=final-project
 spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
 spring.datasource.url=jdbc:mysql://localhost:3306/pokemart
@@ -92,15 +92,21 @@ git clone https://github.com/theacademy/final-project-team-rocket
 
 1. Navigate to the React app directory:
 
-cd frontend
+```
+cd PokeMart
+```
 
 2. Install dependencies:
-
+3. 
+```
 npm install
+```
 
 3. Run the frontend:
 
+```
 npm start
+```
 
 The application will run locally on http://localhost:3000.
 
