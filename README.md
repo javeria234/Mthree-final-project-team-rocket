@@ -60,10 +60,11 @@ Promodi Colambage:	worked extensively in connecting Frontend and Backend, integr
 
 2. Create a database named pokemon_shop (or your preferred name).
 
-3 .Configure the database connection details in the backend's application.properties file.
+3. Configure the database connection details in the backend's application.properties file.
 
 Example:
 
+```bash
 spring.application.name=final-project
 spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
 spring.datasource.url=jdbc:mysql://localhost:3306/pokemart
@@ -72,7 +73,8 @@ spring.datasource.password= write down your workbench password
 spring.jpa.show-sql = true
 spring.jpa.hibernate.ddl-auto = update
 spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.MySQLDialect
-spring.web.resources.static-locations=file:/// + absolute image upload file path in the main final_project folder 
+spring.web.resources.static-locations=file:/// + absolute image upload file path in the main final_project folder
+```
 
 ### 🖥️ Backend (Spring Boot)
 
@@ -101,7 +103,8 @@ npm start
 The application will run locally on http://localhost:3000.
 
 # 📩 Contact
-For any questions, issues, or collaboration inquiries, feel free to contact:
+
+For any questions, issues, feel free to contact:
 
 Promodi Colambage: promodic24@yahoo.it
 
