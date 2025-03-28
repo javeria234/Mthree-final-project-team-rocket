@@ -58,9 +58,9 @@ Team Members	Responsibilities
 
 1. Install and set up MySQL Workbench.
 
-2. Create a database named pokemon_shop (or your preferred name).
+2. Create a database named pokemart.
 
-3. Configure the database connection details in the backend's application.properties file.
+3. Configure the database connection details in the backend's application.properties file once the repository has been cloned.
 
 Example:
 
