@@ -5,7 +5,7 @@ A full-stack e-commerce web application built to sell Pokémon figurines. Create
 This project is designed as an e-commerce platform specifically for Pokémon enthusiasts. Users can browse, select, and purchase Pokémon figurines, while administrators can manage products via an admin panel. The application leverages modern web development tools and frameworks, offering a seamless user experience.
 
 # 📚 Tech Stack
-## Frontend:
+### Frontend:
 
 - React.js
 
@@ -15,48 +15,52 @@ This project is designed as an e-commerce platform specifically for Pokémon ent
 
 - CSS
 
-Backend:
+### Backend:
 
-Java (Spring Boot)
+- Java (Spring Boot)
 
-JPA & Hibernate (ORM)
+- JPA & Hibernate (ORM)
 
-REST APIs
+- REST APIs
 
-Database:
+- Database:
 
-MySQL Workbench
+- MySQL Workbench
 
 # 🌟 Features
-User Authentication (Registration, Login, Logout)
 
-Product Browsing by Categories
+- User Authentication (Login, Logout)
 
-Product Details and Stock Indicators
+- Product Browsing by Categories
 
-Shopping Cart Functionality (Add/Remove products, Quantity management)
+- Product Details and Stock Indicators
 
-Admin Panel (Manage Products - Create, Update, Delete)
+- Shopping Cart Functionality (Add/Remove products, Quantity management)
 
-Image Upload and Management
+- Admin Panel (Manage Products - Create, Update, Delete)
 
-Responsive and User-friendly Interface
+- Image Upload and Management
+
+- Responsive and User-friendly Interface
 
 # 👥 Team Contributions
+
 The project was collaboratively developed with clear roles:
 
 Team Members	Responsibilities
-Javeria	Primarily responsible for Frontend Development (React components, pages, styling, UI/UX).
-Samuel	Primarily responsible for Backend Development (Spring Boot, REST APIs, Database setup and management, business logic implementation).
-Promodi (Me)	Worked extensively in connecting Frontend and Backend, integration, debugging, issue resolution, and assisting both frontend and backend developers.
+Javeria Khan: responsible for Frontend Development (React components, pages, styling, UI/UX).
+Samuel Richardson: 	primarily responsible for Backend Development (Spring Boot, REST APIs, Database setup and management, business logic implementation).
+Promodi Colambage:	worked extensively in connecting Frontend and Backend, integration, debugging, issue resolution, and assisting both frontend and backend developers.
 
 # ⚙️ Installation and Setup
-🗃️ Database (MySQL Workbench)
-Install and set up MySQL Workbench.
 
-Create a database named pokemon_shop (or your preferred name).
+### 🗃️ Database (MySQL Workbench)
 
-Configure the database connection details in the backend's application.properties file.
+1. Install and set up MySQL Workbench.
+
+2. Create a database named pokemon_shop (or your preferred name).
+
+3 .Configure the database connection details in the backend's application.properties file.
 
 Example:
 
@@ -70,29 +74,30 @@ spring.jpa.hibernate.ddl-auto = update
 spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.MySQLDialect
 spring.web.resources.static-locations=file:/// + absolute image upload file path in the main final_project folder 
 
-🖥️ Backend (Spring Boot)
-Clone the repository:
+### 🖥️ Backend (Spring Boot)
 
-bash
-Copia
-Modifica
-git clone <your_repository_link>
-Open the project in your IDE (IntelliJ/Eclipse).
+1. Clone the repository:
 
-Start the Spring Boot application (FinalProjectApplication.java).
+git clone https://github.com/theacademy/final-project-team-rocket
 
-🎨 Frontend (React)
-Navigate to the React app directory:
+2. Open the project in your IDE (IntelliJ/Eclipse).
 
+3. Start the Spring Boot application (FinalProjectApplication.java).
+
+### 🎨 Frontend (React)
+
+1. Navigate to the React app directory:
 
 cd frontend
 
-Install dependencies:
+2. Install dependencies:
 
 npm install
-Run the frontend:
+
+3. Run the frontend:
 
 npm start
+
 The application will run locally on http://localhost:3000.
 
 # 📩 Contact
