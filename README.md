@@ -97,7 +97,7 @@ cd PokeMart
 ```
 
 2. Install dependencies:
-3. 
+
 ```
 npm install
 ```
