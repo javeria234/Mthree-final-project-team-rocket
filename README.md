@@ -116,6 +116,6 @@ For any questions, issues, feel free to contact:
 
 Promodi Colambage: promodic24@yahoo.it
 
-Samuel Richardson: 
+Samuel Richardson: SRich001@outlook.com
 
 Javeria Khan: 
