@@ -5,15 +5,15 @@ A full-stack e-commerce web application built to sell Pokémon figurines. Create
 This project is designed as an e-commerce platform specifically for Pokémon enthusiasts. Users can browse, select, and purchase Pokémon figurines, while administrators can manage products via an admin panel. The application leverages modern web development tools and frameworks, offering a seamless user experience.
 
 # 📚 Tech Stack
-Frontend:
+## Frontend:
 
-React.js
+- React.js
 
-Axios (HTTP Requests)
+- Axios (HTTP Requests)
 
-React Router (Routing)
+- React Router (Routing)
 
-CSS
+- CSS
 
 Backend:
 
