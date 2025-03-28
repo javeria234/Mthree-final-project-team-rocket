@@ -80,7 +80,9 @@ spring.web.resources.static-locations=file:/// + absolute image upload file path
 
 1. Clone the repository:
 
+```
 git clone https://github.com/theacademy/final-project-team-rocket
+```
 
 2. Open the project in your IDE (IntelliJ/Eclipse).
 
