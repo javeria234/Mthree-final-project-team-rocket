@@ -48,9 +48,9 @@ This project is designed as an e-commerce platform specifically for Pokémon ent
 The project was collaboratively developed with clear roles:
 
 Team Members	Responsibilities
-Javeria Khan: responsible for Frontend Development (React components, pages, styling, UI/UX).
-Samuel Richardson: 	primarily responsible for Backend Development (Spring Boot, REST APIs, Database setup and management, business logic implementation).
-Promodi Colambage:	worked extensively in connecting Frontend and Backend, integration, debugging, issue resolution, and assisting both frontend and backend developers.
+- Javeria Khan: responsible for Frontend Development (React components, pages, styling, UI/UX).
+- Samuel Richardson: 	primarily responsible for Backend Development (Spring Boot, REST APIs, Database setup and management, business logic implementation).
+- Promodi Colambage:	worked extensively in connecting Frontend and Backend, integration, debugging, issue resolution, and assisting both frontend and backend developers.
 
 # ⚙️ Installation and Setup
 
