@@ -12,7 +12,8 @@ This project is designed as an e-commerce platform specifically for Pokémon ent
 - React.js  
 - Axios (HTTP Requests)  
 - React Router (Routing)  
-- CSS  
+- CSS
+- HTML
 
 **Backend:**  
 - Java (Spring Boot)  
@@ -32,12 +33,6 @@ This project is designed as an e-commerce platform specifically for Pokémon ent
 - Image Upload and Management  
 - Responsive and User-friendly Interface  
 
-## 👥 Team Contributions
-
-- **Javeria Khan:** Frontend Development (React components, pages, styling, UI/UX)  
-- **Samuel Richardson:** Backend Development (Spring Boot, REST APIs, Database setup and management, business logic)  
-- **Promodi Colambage:** Integration of Frontend and Backend, debugging, issue resolution  
-
 ## ⚙️ Installation and Setup
 
 ### 🗃️ Database (MySQL Workbench)
@@ -51,16 +46,16 @@ spring.application.name=final-project
 spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
 spring.datasource.url=jdbc:mysql://localhost:3306/pokemart
 spring.datasource.username=root
-spring.datasource.password=YOUR_WORKBENCH_PASSWORD
-spring.jpa.show-sql=true
-spring.jpa.hibernate.ddl-auto=update
-spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQLDialect
-spring.web.resources.static-locations=file:///ABSOLUTE_IMAGE_UPLOAD_PATH
+spring.datasource.password= write down your workbench password
+spring.jpa.show-sql = true
+spring.jpa.hibernate.ddl-auto = update
+spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.MySQLDialect
+spring.web.resources.static-locations=file:/// + absolute image upload file path in the main final_project folder
 
-🖥️ Backend (Spring Boot)
+###  🖥️ Backend (Spring Boot)
 
 Clone the repository:
-
+```bash
 git clone git@github.com:javeria234/Mthree-final-project-team-rocket.git
 
 
