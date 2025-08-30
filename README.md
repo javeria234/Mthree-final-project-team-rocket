@@ -6,78 +6,70 @@ This project is designed as an e-commerce platform specifically for Pokémon ent
 
 # 📚 Tech Stack
 Frontend:
-React.js
+- React.js
 
-Axios (HTTP Requests)
+- Axios (HTTP Requests)
 
-React Router (Routing)
+- React Router (Routing)
 
-CSS
+- CSS
 
 Backend:
-Java (Spring Boot)
+- Java (Spring Boot)
 
-JPA & Hibernate (ORM)
+- JPA & Hibernate (ORM)
 
-REST APIs
+- REST APIs
 
 Database:
 MySQL Workbench
 🌟 Features
-User Authentication (Login, Logout)
+- User Authentication (Login, Logout)
 
-Product Browsing by Categories
+- Product Browsing by Categories
 
-Product Details and Stock Indicators
+- Product Details and Stock 
 
-Shopping Cart Functionality (Add/Remove products, Quantity management)
+- Shopping Cart Functionality (Add/Remove products, Quantity management)
 
-Admin Panel (Manage Products - Create, Update, Delete)
+- Admin Panel (Manage Products - Create, Update, Delete)
 
-Image Upload and Management
+- Image Upload and Management
 
-Responsive and User-friendly Interface
+- Responsive and User-friendly Interface
 
 ⚙️ Installation and Setup
 🗃️ Database (MySQL Workbench)
-Install and set up MySQL Workbench.
+- Install and set up MySQL Workbench.
 
-Create a database named pokemart.
+- Create a database named pokemart.
 
-Configure the database connection details in the backend's application.properties file once the repository has been cloned.
+- Configure the database connection details in the backend's application.properties file once the repository has been cloned.
 
 Example:
 
-spring.application.name=final-project
-spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
-spring.datasource.url=jdbc:mysql://localhost:3306/pokemart
-spring.datasource.username=root
+- spring.application.name=final-project
+- spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+- spring.datasource.url=jdbc:mysql://localhost:3306/pokemart
+- spring.datasource.username=root
 spring.datasource.password= write down your workbench password
 spring.jpa.show-sql = true
 spring.jpa.hibernate.ddl-auto = update
 spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.MySQLDialect
 spring.web.resources.static-locations=file:/// + absolute image upload file path in the main final_project folder
 🖥️ Backend (Spring Boot)
+
 Clone the repository:
-git clone https://github.com/theacademy/final-project-team-rocket
-Open the project in your IDE (IntelliJ/Eclipse).
+- git clone https://github.com/theacademy/final-project-team-rocket
+- Open the project in your IDE (IntelliJ/Eclipse).
 
 Start the Spring Boot application (FinalProjectApplication.java).
 
 🎨 Frontend (React)
 Navigate to the React app directory:
-cd PokeMart
-Install dependencies:
-npm install
-Run the frontend:
-npm start
+- cd PokeMart
+- Install dependencies:
+- npm install
+- Run the frontend:
+- npm start
 The application will run locally on http://localhost:3000.
-
-📩 Contact
-For any questions, issues, feel free to contact:
-
-Promodi Colambage: promodic24@yahoo.it
-
-Samuel Richardson: SRich001@outlook.com
-
-Javeria Khan:
