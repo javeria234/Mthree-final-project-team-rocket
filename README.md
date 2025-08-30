@@ -5,28 +5,79 @@ A full-stack e-commerce web application built to sell Pokémon figurines. Create
 This project is designed as an e-commerce platform specifically for Pokémon enthusiasts. Users can browse, select, and purchase Pokémon figurines, while administrators can manage products via an admin panel. The application leverages modern web development tools and frameworks, offering a seamless user experience.
 
 # 📚 Tech Stack
-- React.js
+Frontend:
+React.js
 
-- Java
+Axios (HTTP Requests)
 
-- Javascript
+React Router (Routing)
 
-- CSS
+CSS
 
-- node.js
+Backend:
+Java (Spring Boot)
 
-# 🌟 Features
+JPA & Hibernate (ORM)
 
-- User Authentication (Login, Logout)
+REST APIs
 
-- Product Browsing by Categories
+Database:
+MySQL Workbench
+🌟 Features
+User Authentication (Login, Logout)
 
-- Product Details and Stock 
+Product Browsing by Categories
 
-- Shopping Cart Functionality (Add/Remove products, Quantity management)
+Product Details and Stock Indicators
 
-- Admin Panel (Manage Products - Create, Update, Delete)
+Shopping Cart Functionality (Add/Remove products, Quantity management)
 
-- Image Upload and Management
+Admin Panel (Manage Products - Create, Update, Delete)
 
-- Responsive and User-friendly Interface
+Image Upload and Management
+
+Responsive and User-friendly Interface
+
+⚙️ Installation and Setup
+🗃️ Database (MySQL Workbench)
+Install and set up MySQL Workbench.
+
+Create a database named pokemart.
+
+Configure the database connection details in the backend's application.properties file once the repository has been cloned.
+
+Example:
+
+spring.application.name=final-project
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+spring.datasource.url=jdbc:mysql://localhost:3306/pokemart
+spring.datasource.username=root
+spring.datasource.password= write down your workbench password
+spring.jpa.show-sql = true
+spring.jpa.hibernate.ddl-auto = update
+spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.MySQLDialect
+spring.web.resources.static-locations=file:/// + absolute image upload file path in the main final_project folder
+🖥️ Backend (Spring Boot)
+Clone the repository:
+git clone https://github.com/theacademy/final-project-team-rocket
+Open the project in your IDE (IntelliJ/Eclipse).
+
+Start the Spring Boot application (FinalProjectApplication.java).
+
+🎨 Frontend (React)
+Navigate to the React app directory:
+cd PokeMart
+Install dependencies:
+npm install
+Run the frontend:
+npm start
+The application will run locally on http://localhost:3000.
+
+📩 Contact
+For any questions, issues, feel free to contact:
+
+Promodi Colambage: promodic24@yahoo.it
+
+Samuel Richardson: SRich001@outlook.com
+
+Javeria Khan:
