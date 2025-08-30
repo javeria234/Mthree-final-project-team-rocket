@@ -61,29 +61,9 @@ spring.jpa.hibernate.ddl-auto=update
 spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQLDialect
 spring.web.resources.static-locations=file:/// + absolute image upload file path in the main final_project folder
 
-# 🖥️ Backend (Spring Boot)
-
+🖥️ Backend (Spring Boot)
 1. Clone the repository:
-
-git clone https://github.com/theacademy/final-project-team-rocket.git
-
+git clone https://github.com/theacademy/final-project-team-rocket
 2. Open the project in your IDE (IntelliJ/Eclipse).
+
 3. Start the Spring Boot application (FinalProjectApplication.java).
-
-
-
-🎨 Frontend (React)
-
-1. Navigate to the React app directory:
-
-   cd PokeMart
-
-2. Install dependencies:
-
-  npm install
-
-3. Run the frontend:
-
-  npm start
-
-The application will run locally on http://localhost:3000.
