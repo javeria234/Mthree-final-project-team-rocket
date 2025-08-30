@@ -33,35 +33,6 @@ This project is designed as an e-commerce platform specifically for Pokémon ent
 - Image Upload and Management  
 - Responsive and User-friendly Interface  
 
-## ⚙️ Installation and Setup
-
-### 🗃️ Database (MySQL Workbench)
-
-1. Install and set up MySQL Workbench.  
-2. Create a database named `pokemart`.  
-3. Configure the backend connection in `application.properties`:
-
-```properties
-spring.application.name=final-project
-spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
-spring.datasource.url=jdbc:mysql://localhost:3306/pokemart
-spring.datasource.username=root
-spring.datasource.password= write down your workbench password
-spring.jpa.show-sql = true
-spring.jpa.hibernate.ddl-auto = update
-spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.MySQLDialect
-spring.web.resources.static-locations=file:/// + absolute image upload file path in the main final_project folder
-
-🖥️ Backend (Spring Boot)
-
-Clone the repository:
-
-git clone git@github.com:javeria234/Mthree-final-project-team-rocket.git
-
-
-Open the project in your IDE (IntelliJ/Eclipse).
-
-Start the Spring Boot application (FinalProjectApplication.java)
 
 🎨 Frontend (React)
 
