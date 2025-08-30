@@ -5,27 +5,15 @@ A full-stack e-commerce web application built to sell Pokémon figurines. Create
 This project is designed as an e-commerce platform specifically for Pokémon enthusiasts. Users can browse, select, and purchase Pokémon figurines, while administrators can manage products via an admin panel. The application leverages modern web development tools and frameworks, offering a seamless user experience.
 
 # 📚 Tech Stack
-### Frontend:
-
 - React.js
 
-- Axios (HTTP Requests)
+- Java
 
-- React Router (Routing)
+- Javascript
 
 - CSS
 
-### Backend:
-
-- Java (Spring Boot)
-
-- JPA & Hibernate (ORM)
-
-- REST APIs
-
-- Database:
-
-- MySQL Workbench
+- node.js
 
 # 🌟 Features
 
@@ -33,7 +21,7 @@ This project is designed as an e-commerce platform specifically for Pokémon ent
 
 - Product Browsing by Categories
 
-- Product Details and Stock Indicators
+- Product Details and Stock 
 
 - Shopping Cart Functionality (Add/Remove products, Quantity management)
 
@@ -42,80 +30,3 @@ This project is designed as an e-commerce platform specifically for Pokémon ent
 - Image Upload and Management
 
 - Responsive and User-friendly Interface
-
-# 👥 Team Contributions
-
-The project was collaboratively developed with clear roles:
-
-Team Members	Responsibilities
-- Javeria Khan: responsible for Frontend Development (React components, pages, styling, UI/UX).
-- Samuel Richardson: 	primarily responsible for Backend Development (Spring Boot, REST APIs, Database setup and management, business logic implementation).
-- Promodi Colambage:	worked extensively in connecting Frontend and Backend, integration, debugging, issue resolution, and assisting both frontend and backend developers.
-
-# ⚙️ Installation and Setup
-
-### 🗃️ Database (MySQL Workbench)
-
-1. Install and set up MySQL Workbench.
-
-2. Create a database named pokemart.
-
-3. Configure the database connection details in the backend's application.properties file once the repository has been cloned.
-
-Example:
-
-```
-spring.application.name=final-project
-spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
-spring.datasource.url=jdbc:mysql://localhost:3306/pokemart
-spring.datasource.username=root
-spring.datasource.password= write down your workbench password
-spring.jpa.show-sql = true
-spring.jpa.hibernate.ddl-auto = update
-spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.MySQLDialect
-spring.web.resources.static-locations=file:/// + absolute image upload file path in the main final_project folder
-```
-
-### 🖥️ Backend (Spring Boot)
-
-1. Clone the repository:
-
-```
-git clone https://github.com/theacademy/final-project-team-rocket
-```
-
-2. Open the project in your IDE (IntelliJ/Eclipse).
-
-3. Start the Spring Boot application (FinalProjectApplication.java).
-
-### 🎨 Frontend (React)
-
-1. Navigate to the React app directory:
-
-```
-cd PokeMart
-```
-
-2. Install dependencies:
-
-```
-npm install
-```
-
-3. Run the frontend:
-
-```
-npm start
-```
-
-The application will run locally on http://localhost:3000.
-
-# 📩 Contact
-
-For any questions, issues, feel free to contact:
-
-Promodi Colambage: promodic24@yahoo.it
-
-Samuel Richardson: SRich001@outlook.com
-
-Javeria Khan: 
