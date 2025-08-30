@@ -65,13 +65,11 @@ spring.web.resources.static-locations=file:/// + absolute image upload file path
 
 1. Clone the repository:
 
-git clone https://github.com/theacademy/final-project-team-rocket
+git clone https://github.com/theacademy/final-project-team-rocket.git
 
 2. Open the project in your IDE (IntelliJ/Eclipse).
-
 3. Start the Spring Boot application (FinalProjectApplication.java).
 
-./mvnw spring-boot:run
 
 
 🎨 Frontend (React)
