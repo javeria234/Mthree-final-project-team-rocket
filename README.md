@@ -71,18 +71,21 @@ git clone https://github.com/theacademy/final-project-team-rocket
 
 3. Start the Spring Boot application (FinalProjectApplication.java).
 
+./mvnw spring-boot:run
+
+
 🎨 Frontend (React)
 
 1. Navigate to the React app directory:
 
-   'cd PokeMart'
+   cd PokeMart
 
 2. Install dependencies:
 
-  'npm install'
+  npm install
 
 3. Run the frontend:
 
-  'npm start'
+  npm start
 
 The application will run locally on http://localhost:3000.
