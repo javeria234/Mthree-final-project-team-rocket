@@ -61,7 +61,7 @@ spring.jpa.hibernate.ddl-auto=update
 spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQLDialect
 spring.web.resources.static-locations=file:/// + absolute image upload file path in the main final_project folder
 
-🖥️ Backend (Spring Boot)
+### 🖥️ Backend (Spring Boot)
 
 1. Clone the repository:
 
