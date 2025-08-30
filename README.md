@@ -48,28 +48,30 @@ MySQL Workbench
 
 Example:
 
-- spring.application.name=final-project
-- spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
-- spring.datasource.url=jdbc:mysql://localhost:3306/pokemart
-- spring.datasource.username=root
+spring.application.name=final-project
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+spring.datasource.url=jdbc:mysql://localhost:3306/pokemart
+spring.datasource.username=root
 spring.datasource.password= write down your workbench password
 spring.jpa.show-sql = true
 spring.jpa.hibernate.ddl-auto = update
 spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.MySQLDialect
 spring.web.resources.static-locations=file:/// + absolute image upload file path in the main final_project folder
+
 🖥️ Backend (Spring Boot)
 
-Clone the repository:
-- git clone https://github.com/theacademy/final-project-team-rocket
-- Open the project in your IDE (IntelliJ/Eclipse).
+1. Clone the repository:
+git clone https://github.com/theacademy/final-project-team-rocket
 
-Start the Spring Boot application (FinalProjectApplication.java).
+2. Open the project in your IDE (IntelliJ/Eclipse).
+
+3.Start the Spring Boot application (FinalProjectApplication.java).
 
 🎨 Frontend (React)
-Navigate to the React app directory:
-- cd PokeMart
-- Install dependencies:
-- npm install
-- Run the frontend:
-- npm start
+1. Navigate to the React app directory:
+   cd PokeMart
+2. Install dependencies:
+  npm install
+3. Run the frontend:
+  npm start
 The application will run locally on http://localhost:3000.
