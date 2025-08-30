@@ -36,17 +36,17 @@ This project is designed as an e-commerce platform specifically for Pokémon ent
 
 🎨 Frontend (React)
 
-Navigate to the React app directory:
+1. Navigate to the React app directory:
 
-** cd PokeMart **
+cd PokeMart
 
 
-Install dependencies:
+2. Install dependencies:
 
 npm install
 
 
-Run the frontend:
+3. Run the frontend:
 
 npm start
 
